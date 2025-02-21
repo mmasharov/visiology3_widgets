@@ -1,10 +1,11 @@
 // Идентификатор дашборда получаем из адресной строки браузера
-const dGuid = window.location.search.match(/dashboardGuid=(\w+)&/);
+const urlParams = new URLSearchParams(window.location.search);
+const dGuid = urlParams.get('dashboardGuid');
 // Ключ для обращений к API Графаны должен быть создан заранее
 const gapikey = '<здесь должен быть ваш токен для api Графаны>';
 // В отдельной переменной прописываем параметры запроса Loki. В них задается временной промежуток просмотра логов.
 const params = new URLSearchParams({
-    'query': '{component="v3-dashboard-service"} |= `OperationName:\\"GetDashboard\\"` |= "' + dGuid[1] + '" |= "Success" | json',
+    'query': '{component="v3-dashboard-service"} |= `OperationName:\\"GetDashboard\\"` |= "' + dGuid + '" |= "Success" | json',
     'since': '24h'
 });
 
