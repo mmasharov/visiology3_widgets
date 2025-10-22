@@ -4,6 +4,9 @@
 		#va-dashboard-container {
 			order: 2
 		}
+		#va-dashboard-container.va-dashboard-editing {
+			order: inherit;
+		}
 		.va-sheets-navigator-container {
 			order: 1;
 			background-color: #013358 !important;
